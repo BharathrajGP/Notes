@@ -1,0 +1,959 @@
+										Java Script
+										***********
+
+1) JavaScript Objects:
+-----------------------
+	* It is common practice to declare objects with the const keyword
+	* The values are written as name:value pairs (name and value separated by a colon).
+	* The name:values pairs in JavaScript objects are called properties.
+	* Declaring javascript object
+		const person = {
+  				firstName: "John",
+  				lastName: "Doe",
+  				age: 50,
+  				eyeColor: "blue"
+				};
+	* Accesing properties of an object is 
+		objectName.propertyName => person.firstName
+		objectName["propertyName"] => person["firstName"]
+	* Eg:  <script>
+        		const person = {
+  				firstName: "John",
+  				lastName: "Doe",
+  				age: 50,
+  				eyeColor: "blue"
+				};
+            		document.write(person.firstName);
+    		</script>
+	
+
+	* Object Methods :
+		# Objects can also have methods.
+		# Methods are actions that can be performed on objects.
+		# Methods are stored in properties as function definitions.
+		# Declaration : const person = {
+  						firstName: "John",
+  						lastName : "Doe",
+  						id       : 5566,
+  						fullName : function() {
+    								return this.firstName + " " + this.lastName;
+ 								}
+						};
+		# Accessing the properties 
+			objectName.methodName() => person.fullName();
+		# Eg: <script>
+        		const person = {
+  				firstName: "John",
+  				lastName: "Doe",
+  				age: 50,
+  				eyeColor: "blue",
+                		fullName : function() {
+    								return this.firstName + " " + this.lastName;
+ 								}
+				};
+            			document.write(person.firstName);
+            			document.write(person.fullName());
+    			</script>
+
+
+2) JavaScript Event
+-------------------
+	* HTML events are "things" that happen to HTML elements.
+	* When JavaScript is used in HTML pages, JavaScript can "react" on these events.
+	* Eg: <button onclick="document.getElementById('demo').innerHTML = Date()">The time is?</button>
+
+3) JavaScript Strings
+---------------------
+	* A JavaScript string is zero or more characters written inside quotes.
+	* The backslash (\) escape character turns special characters into string characters:
+
+		Code	Result	Description
+		\'	'	Single quote
+		\"	"	Double quote
+		\\	\	Backslash
+
+	  eg: let text = "We are the so-called \"Vikings\" from the north."; => o/p->We are the so-called "Vikings" from the north.
+
+
+	* Methods Of Strings
+	=====================
+		a) String length : The length property returns the length of a string
+					eg: let text = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+                                            let length = text.length;
+					    document.write(length);
+
+		b) String slice(): slice() extracts a part of a string and returns the extracted part in a new string.
+				   The method takes 2 parameters: start position, and end position (end not included).
+				   eg: <script>
+						let text = "Apple, Banana, Kiwi";
+						let part = text.slice(7,13);
+						document.write(part); 
+					</script>
+
+		c) String substring(): substring(startindex, endindex)
+				       Extracts a part of a string and returns the extracted part in a new string
+					If the start and end values less than 0 are treated as 0 in substring()
+					If you omit the second parameter, substring() will slice out the rest of the string.
+					eg :<script>
+						let text = "Apple, Banana, Kiwi";
+						let part = text.substring(7, 13);
+						document.write(part); 
+					</script>
+
+		d) String substr() : substr(startindex, length)
+				     The second parameter specifies the length of the extracted part.
+				     If you omit the second parameter, substr() will slice out the rest of the string.
+				     eg : <script>
+						let text = "Apple, Banana, Kiwi";
+						let part = text.substr(7,3);
+						document.write(part); 
+					</script>
+
+		e) String replace()
+		f) String replaceAll()
+		g) String toUpperCase()
+		h) String toLowerCase()
+		i) String concat()
+		j) String trim()
+		k) String trimStart()
+		l) String trimEnd()
+		m) String padStart()
+		n) String padEnd()
+		o) String charAt()
+		p) String charCodeAt()
+		q) String split()
+
+	* String Search Methods
+	=======================
+		a) String indexOf() : The indexOf() method returns the index (position) the first occurrence of a string in a string
+
+		b) String lastIndexOf() : The lastIndexOf() method returns the index of the last occurrence of a specified text in a string
+
+			Note : Both indexOf(), and lastIndexOf() return -1 if the text is not found
+				Both methods accept a second parameter as the starting position for the search
+
+		c) String search() : The search() method searches a string for a string (or a regular expression) and returns the position of the match
+				     The search() method cannot take a second start position argument.
+
+		d) String match() : The match() method returns an array containing the results of matching a string against a string (or a regular expression).
+
+		e) String matchAll() : The matchAll() method returns an iterator containing the results of matching a string against a string (or a regular expression).
+
+		f) String includes() : The includes() method returns true if a string contains a specified value otherwise it returns false.
+
+		g) String startsWith() : The startsWith() method returns true if a string begins with a specified value otherwise it returns false.
+					 startsWith("world", 5) 2nd parameter is start position for the search
+
+		h) String endsWith() : The endsWith() method returns true if a string ends with a specified value otherwise it returns false
+
+
+4) Arrays
+---------
+	* An array is a special variable, which can hold more than one value
+	* An array can hold many values under a single name, and you can access the values by referring to an index number.
+	* Array Creation
+		syntax : 1. const array_name = [item1, item2, ...];    
+			    eg: const cars = ["Saab", "Volvo", "BMW"];
+
+			 2. const array_name = new Array();
+			    eg: const cars = new Array("Saab", "Volvo", "BMW");
+
+	* Accessing Array Elements 
+		let car = cars[0];
+
+	* Changing an Array Element
+		cars[0] = "Opel";
+
+	* Converting an Array to a String : The JavaScript method toString() converts an array to a string of (comma separated) array values.
+					    eg: <script>
+							const fruits = ["Banana", "Orange", "Apple", "Mango"];
+							let xyz=fruits.toString();
+							document.write("1");
+							document.write(xyz);
+						</script>
+
+	* Arrays are Objects : 
+			-> Arrays are a special type of objects. The typeof operator in JavaScript returns "object" for arrays.
+			-> But, JavaScript arrays are best described as arrays.
+			-> Objects use names to access its "members". In this example, person.firstName returns John:
+			-> eg: const person = {firstName:"John", lastName:"Doe", age:46};
+
+	* Array Methods
+	  =============
+		a) Array length : The length property returns the length (size) of an array
+
+		b) Array toString() : The JavaScript method toString() converts an array to a string of (comma separated) array values.
+
+		c) Array pop() : The pop() method removes the last element from an array
+				 The pop() method returns the value that was "popped out"
+
+		d) Array push() : The push() method adds a new element to an array (at the end):
+				  The push() method returns the new array length
+				  eg: onst fruits = ["Banana", "Orange", "Apple", "Mango"];
+				      let length = fruits.push("Kiwi");
+				      document.write(length)
+
+		e) Array shift() : The shift() method removes the first array element and "shifts" all other elements to a lower index.
+				   eg: const fruits = ["Banana", "Orange", "Apple", "Mango"];
+				       fruits.shift();
+
+		f) Array unshift() : The unshift() method adds a new element to an array (at the beginning), and "unshifts" older elements
+				     eg: const fruits = ["Banana", "Orange", "Apple", "Mango"];
+					 fruits.unshift("Lemon");
+
+		g) Array join() : The join() method also joins all array elements into a string
+				  eg: <script>
+					const fruits = ["Banana", "Orange", "Apple", "Mango"];
+					document.write(fruits.join(","));
+				      </script>
+
+		h) Array delete() : -> Array elements can be deleted using the JavaScript operator delete.
+				    -> Using delete leaves undefined holes in the array.(resultant output for that position will be undefined)
+				    -> Use pop() or shift() instead.
+				       eg: <script>
+						const fruits = ["Banana", "Orange", "Apple", "Mango"];
+						document.write( fruits[0]);
+						delete fruits[0];
+						document.write( fruits[0]);
+					   </script>
+
+		i) Array concat() : The concat() method creates a new array by merging (concatenating) existing arrays
+				    eg: <script>
+						const array1 = ["Cecilie", "Lone"];
+						const array2 = ["Emil", "Tobias", "Linus"];
+						const array3 = ["Robin", "Morgan"];
+						document.write( array1.concat(array2, array3)); 
+					</script>
+
+		j) Array flat() : -> Flattening an array is the process of reducing the dimensionality of an array.
+				  -> The flat() method creates a new array with sub-array elements concatenated to a specified depth.
+				     eg: <script>
+						const myArr = [[1,2],[3,4],[5,6]];
+						document.write(myArr.flat());
+						document.write(myArr.flat().length);
+					 </script>
+
+		k) Array splice() : -> The splice() method adds new items to an array.
+				       eg: const fruits = ["Banana", "Orange", "Apple", "Mango"];
+					   fruits.splice(2, 0, "Lemon", "Kiwi");
+				    -> With clever parameter setting, you can use splice() to remove elements without leaving "holes" in the array
+					eg: const fruits = ["Banana", "Orange", "Apple", "Mango"];
+					    fruits.splice(0, 1);
+
+		l) Array slice() : The slice() method slices out a piece of an array.
+				    eg: <script>
+						const fruits = ["Banana", "Orange", "Lemon", "Apple", "Mango"];
+						document.write(fruits.slice(2))
+					</script>
+
+	* Array Sort
+	  ===========
+		a) sort() : ->The sort() method sorts an array alphabetically
+			      eg : <script>
+					const fruits = ["Banana", "Orange", "Apple", "Mango"];
+					document.write(fruits);
+					document.write(fruits.sort());
+				    </script>
+			     -> This sort() works for srings to sort numericals compare function is used
+				eg:<script>
+					const points = [40, 100, 1, 5, 25, 10];
+					points.sort((a, b)=>a-b);
+					document.write(points[0]); //This gives lowest value in an array
+				    </script>
+
+		b) revervse() : The reverse() method reverses the elements in an array.
+				We can use it to sort an array in descending order
+				eg: <script>
+					const fruits = ["Banana", "Orange", "Apple", "Mango"];
+					document.write(fruits);
+					document.write(fruits.reverse());
+				  </script>
+
+		c) Math.min() : Math.min.apply to find the lowest number in an array
+				eg: <script>
+					const points = [40, 100, 1, 5, 25, 10];
+					document.write(myArrayMin(points));
+
+					function myArrayMin(arr) {
+  							return Math.min.apply(null, arr);
+								}
+				    </script>
+
+		d) Math.max() : Math.max.apply to find the highest number in an array
+				eg: <script>
+					const points = [40, 100, 1, 5, 25, 10];
+					document.write(myArrayMax(points));
+
+					function myArrayMax(arr) {
+  						return Math.max.apply(null, arr);
+						}
+				     </script>
+
+	* Sorting Object Arrays
+	  =====================
+		-> Even if objects have properties of different data types, the sort() method can be used to sort the array.
+		   eg: <script>
+				const cars = [
+  						{type:"Volvo", year:2016},
+  						{type:"Saab", year:2001},
+  						{type:"BMW", year:2010}
+					     ];
+
+					     displayCars();
+
+					cars.sort(function(a, b){return a.year - b.year});
+					displayCars();
+					document.write(cars.length);
+					function displayCars() {
+  						document.write("Hi"+"<br>");
+  						for(let i=0 ; i<cars.length;i++)
+ 						{
+ 							document.write(cars[i].type + " " + cars[i].year + "<br>");
+ 						}
+					}
+			 </script>
+
+	* forEach() : The forEach() method calls a function (a callback function) once for each array element.
+		      eg: <script>
+				const numbers = [45, 4, 9, 16, 25];
+
+				let txt = "";
+				numbers.forEach(myFunction);
+				document.write(txt);		
+				function myFunction(value, index, array) {
+  					txt += value + "<br>"; 
+				}
+			   </script>
+
+	
+5) Dates
+---------
+	* const d = new Date()
+	* const d = new Date("2023-05-29");
+	* new Date(year,month,day,hours,minutes,seconds,ms)
+	* Date Formats
+		Type	           Example
+		a) ISO Date	   "2023-05-29" (The International Standard)(yyy-mm-dd)
+		a) Short Date	   "05/29/2023"(mm/dd/yyyy)
+		c) Long Date	   "May 29 2023" or "29 May 2023"
+
+	* Date GET Methods
+		Method	                Description
+		a) getFullYear()	Get year as a four digit number (yyyy)
+		b) getMonth()	        Get month as a number (0-11)
+		c) getDate()	        Get day as a number (1-31)
+		d) getDay()		Get weekday as a number (0-6)
+		e) getHours()		Get hour (0-23)
+		f) getMinutes()		Get minute (0-59)
+		g) getSeconds()		Get second (0-59)
+		h) getMilliseconds()	Get millisecond (0-999)
+		i)getTime()		Get time (milliseconds since January 1, 1970)
+	
+	* Date SET Methods
+		Method			Description
+		a) setDate()		Set the day as a number (1-31)
+		b) setFullYear()	Set the year (optionally month and day)
+		c) setHours()		Set the hour (0-23)
+		d) setMilliseconds()	Set the milliseconds (0-999)
+		e) setMinutes()		Set the minutes (0-59)
+		f) setMonth()		Set the month (0-11)
+		g) setSeconds()		Set the seconds (0-59)
+		h) setTime()		Set the time (milliseconds since January 1, 1970)
+
+6) Math
+-------
+	* The JavaScript Math object allows you to perform mathematical tasks on numbers
+	* Math Properties (Constants)
+		Math.E        // returns Euler's number
+		Math.PI       // returns PI
+		Math.SQRT2    // returns the square root of 2
+		Math.SQRT1_2  // returns the square root of 1/2
+		Math.LN2      // returns the natural logarithm of 2
+		Math.LN10     // returns the natural logarithm of 10
+		Math.LOG2E    // returns base 2 logarithm of E
+		Math.LOG10E   // returns base 10 logarithm of E
+
+7) Random
+---------
+	* Math.random() returns a random number between 0 (inclusive),  and 1 (exclusive)
+	   Math.random() always returns a number lower than 1.
+	   eg: document.write((Math.random() * 100000));
+	* Math.random() used with Math.floor() can be used to return random integers.
+	   Math.random() used with Math.floor() this gives numbers with no decimals
+
+8) For loop
+-----------
+
+9) For In loop
+------------
+	* for in statement loops through the properties of an Object
+	* It moves through every values in an array
+	* Syntax : for (key in object) {
+  			// code block to be executed
+		    }
+	* eg:<script>
+		let language = ["JavaScript", "Bye"];
+		let text = "";
+		for (let x in language) {
+  			text += language[x] + "<br>";
+		}
+		document.write (text);
+	     </script>
+
+10) For Of loop
+---------------
+	* for of statement loops through the values of an iterable object.
+	* It moves through each and every letter of a word in a value
+	* Syntax : for (key of object) {
+  			// code block to be executed
+		    }
+	* eg: <script>
+		let language = "JavaScript Bye";
+		let text = "";
+		for (let x of language) {
+  			text += x + "<br>";
+		}
+		document.write (text);
+	     </script>
+
+11) while loop
+--------------
+	* while loop loops through a block of code as long as a specified condition is true.
+	* syntax : while (condition) {
+  			// code block to be executed
+		   }
+
+12) Do While loop
+-----------------
+	* do while loop is a variant of the while loop. This loop will execute the code block once, before checking if the condition is true, then it will repeat the loop as long as the condition is true.
+	* Syntax : do {
+  			// code block to be executed
+		   }
+		   while (condition);
+
+13) break and continue 
+----------------------
+	* The break statement "jumps out" of a loop.
+	* The continue statement "jumps over" one iteration in the loop.
+
+14) Sets
+---------
+	* A JavaScript Set is a collection of unique values.
+	* Each value can only occur once in a Set.(means it doesn't allow duplicates if duplicate value is present it overwrites)
+	* Methods Of Set
+		Method	        Description
+		a) new Set()	Creates a new Set
+		b) add()	Adds a new element to the Set
+		c) delete()	Removes an element from a Set
+		d) has()	Returns true if a value exists in the Set
+		e) forEach()	Invokes a callback for each element in the Set
+		f) values()	Returns an iterator with all the values in a Set
+
+		Property	Description
+		a) size		Returns the number of elements in a Set
+
+		-> eg : <script>
+				// Create a Set
+				const letters = new Set(["a","b","c"]);
+
+				// Add Values to the Set
+				letters.add("d");
+				letters.add("e");
+				letters.add("f");
+
+				// Display set.size
+				document.write(letters.size);
+
+				// List all Elements forEach()
+				let text = "";
+				letters.forEach (function(value) {
+  				text += "<br>"+value;
+				})
+				document.write(text)
+
+				// List all Elements value()
+				let text1 = "";
+				for (const x of letters.values()) {
+ 				text1 +="<br>"+ x;
+				}
+				document.write(text1+"<br>");
+
+				//Check values exists in a set
+				document.write(letters.has("i"));
+			</script>
+
+15) Maps
+--------
+	* A Map holds key-value pairs where the keys can be any datatype.
+	* A Map remembers the original insertion order of the keys.
+	* Map Methods
+		Method		Description
+		a) new Map()	Creates a new Map
+		b) set()	Sets the value for a key in a Map
+		c) get()	Gets the value for a key in a Map
+		d) delete()	Removes a Map element specified by the key
+		e) has()	Returns true if a key exists in a Map
+		f) forEach()	Calls a function for each key/value pair in a Map
+		g) entries()	Returns an iterator with the [key, value] pairs in a Map
+
+		Property	Description
+		a)size		Returns the number of elements in a Map
+
+		-> eg: <script>
+				// Create a Map
+				const fruits1 = new Map([
+				  ["apples", 500],
+				  ["bananas", 300],
+				  ["oranges", 200]
+				]);
+
+				// Create a Map
+				const fruits = new Map();
+
+				// Set Map Values
+				fruits.set("apples", 500);
+				fruits.set("bananas", 300);
+				fruits.set("oranges", 200);
+				fruits.set(3, 200);
+
+				document.write(fruits.get(3)+"<br>");
+
+				//Size 
+				document.write(fruits.size+"<br>")
+
+				// List all entries
+				let text = "";
+				fruits.forEach (function(value, key) {
+				  text += key + ' = ' + value+", ";
+				})
+				document.write(text+"<br>");
+
+				//has property
+				document.write(fruits.has("apples")+"<br>");
+
+				//entries
+				let textz = "";
+				for (const x of fruits.entries()) {
+				  textz += x + "<br>";
+				}
+				document.write(textz);
+
+				// delete 
+				document.write(fruits1.has("apples")+"<br>");
+				fruits1.delete("apples");
+				document.write(fruits1.has("apples")+"<br>");
+				let text1 = "";
+				fruits1.forEach (function(value, key) {
+				  text1 += key + ' = ' + value+", ";
+				})
+				document.write("<br>"+text1);
+
+			</script>
+
+16) typeof
+----------
+	* typeof operator to find the data type of a JavaScript variable.
+	* There are 6 types of objects:
+		a) Object
+		b) Date
+		c) Array
+		d) String
+		e) Number
+		f) Boolean
+
+	* eg :  typeof "John"                 // Returns "string"
+		typeof 3.14                   // Returns "number"
+		typeof NaN                    // Returns "number"
+		typeof false                  // Returns "boolean"
+		typeof [1,2,3,4]              // Returns "object"
+		typeof {name:'John', age:34}  // Returns "object"
+		typeof new Date()             // Returns "object"
+		typeof function () {}         // Returns "function"
+		typeof myCar                  // Returns "undefined" *
+		typeof null                   // Returns "object"
+
+17) instanceOf
+---------------
+	* The instanceof operator returns true if an object is an instance of the specified object
+	* eg : const cars = ["Saab", "Volvo", "BMW"];
+
+		(cars instanceof Array);
+		(cars instanceof Object);
+		(cars instanceof String);
+		(cars instanceof Number);
+
+18) Type Conversion
+--------------------
+	a) Converting Strings to Numbers : -> The global method Number() converts a variable (or a value) into a number.
+						eg: Number("3.14")
+						    Number(Math.PI)
+					   ->   Method		Description
+						a) Number()	Returns a number, converted from its argument
+						b) parseFloat()	Parses a string and returns a floating point number
+						c) parseInt()	Parses a string and returns an integer
+
+	b) Converting Numbers to Strings : -> The global method String() can convert numbers to strings.
+					   -> The Number method toString() does the same.
+						eg: i. String(100 + 23)
+						   ii. (100 + 23).toString()
+					   ->   Method			Description
+						a) toExponential()	Returns a string, with a number rounded and written using exponential notation.
+						b) toFixed()		Returns a string, with a number rounded and written with a specified number of decimals.
+						c) toPrecision()	Returns a string, with a number written with a specified length
+
+	c) Converting Dates to Numbers : -> The global method Number() can be used to convert dates to numbers.
+					     eg : Number(new Date())  
+	
+	d) Converting Dates to Strings : -> The global method String() can convert dates to strings.
+					     eg : String(Date())
+
+19) Errors
+-----------
+	* Errors can be coding errors made by the programmer, errors due to wrong input, and other unforeseeable things.
+	* It is going to terminate the code we can handle this termination by using try and catch block
+	* Try : 
+		try block is used to write risky line of code which is reason for the error
+	* catch :
+		catch block is used to write alternative code for the error
+	* finally :
+		finally block executes irrespective of occurance of error
+	* throw : 
+		It alows to create custom error
+	* eg: <script>
+			try {
+  				aleret("Welcome guest!");
+			}
+			catch(err) {
+  				document.write(err.message);
+			}
+			finally {
+    				document.write("Hi");
+    
+    				try
+    				{
+    					let x=10;
+ 					var y=x*10
+  
+  					if(x>y)
+  					{
+  						document.write(x);
+  					}
+  					else
+  					{
+  						throw "less";
+  					}
+    				}
+    				catch(err2)
+    				{
+    					document.write(err2);
+    				}
+  			}
+  
+		</script>
+
+20) this keyword
+----------------
+	* In JavaScript, the this keyword refers to an object.
+	* Which object depends on how this is being invoked (used or called).
+	* The this keyword refers to different objects depending on how it is used:
+
+	* In an object method, this refers to the object.
+	* Alone, this refers to the global object.
+	* In a function, this refers to the global object.
+	* In a function, in strict mode, this is undefined.
+	* In an event, this refers to the element that received the event.
+	* Methods like call(), apply(), and bind() can refer this to any object
+	
+	* this in a Method :
+	  ==================
+		-> When used in an object method, this refers to the object.
+		   eg: <script>
+				// Create an object:
+				const person = {
+  					firstName: "Bharath",
+  					lastName: "raj",
+  					id: 5566,
+  					fullName : function() {
+    						return this.firstName + this.lastName;
+  					}
+				};
+
+				// Display data from the object:
+				document.write(person.fullName());
+			</script>
+
+		-> In this example, this refers to the person object.
+		-> Because the fullName method is a method of the person object.
+
+	* this Alone :
+	  ============
+		-> When used alone, this refers to the global object.
+		-> Because this is running in the global scope.
+		-> In a browser window the global object is [object Window]:
+		-> In strict mode, when used alone, this also refers to the global object.
+		   eg: <script>
+				let x = this;
+				document.write(x);
+			</script>
+
+	* this in a Function (Default):
+	  =============================
+		-> In a function,this refers to the global object.Because the global object is the default binding for this.
+		-> In a browser window the global object is [object Window]
+		   eg: <script>
+				document.write(myFunction());
+
+				function myFunction() {
+  					return this;
+				}
+			</script>
+	* this in a Function (Strict) :
+	  =============================
+		-> JavaScript strict mode does not allow default binding.
+		-> So, when used in a function, in strict mode, this is undefined.
+		   eg: <script>
+				"use strict";
+				document.write(myFunction());
+
+				function myFunction() {
+  					return this;
+				}
+			</script>
+
+	* this in Event Handlers :
+	  ========================
+		-> In HTML event handlers, this refers to the HTML element that received the event
+		   eg: <button onclick="this.style.display='none'">Click to Remove Me!</button>
+
+	* Explicit Function Binding :
+	  ===========================
+		-> The call() and apply() methods are predefined JavaScript methods.
+		-> They can both be used to call an object method with another object as argument.
+		   eg: <script>
+				const person1 = {
+  					fullName: function() {
+    						return this.firstName + this.lastName;
+  					}
+				}
+
+				const person2 = {
+  					firstName:"Bharath",
+  					lastName: "raj",
+				}
+
+				let x = person1.fullName.call(person2); 
+				let x = person1.fullName.apply(person2);
+				document.write(x); 
+			</script>
+
+		-> bind() method, an object can borrow a method from another object.
+
+21) Classes
+-----------
+	*  ES6, introduced JavaScript Classes.
+	* JavaScript Classes are templates for JavaScript Objects.
+	* JavaScript Class Syntax
+		-> Use the keyword class to create a class.
+		-> Always add a method named constructor()
+		   class ClassName {
+  			constructor() { ... }
+		   }
+
+		  eg: class person{
+        		constructor(name) {
+            			this.name=name;
+        		}
+   		    }
+
+	* The Constructor Method
+		-> The constructor method is a special method:
+		-> It has to have the exact name "constructor"
+		-> It is executed automatically when a new object is created
+		-> It is used to initialize object properties
+		-> If you do not define a constructor method, JavaScript will add an empty constructor method.
+
+	* Class Methods
+		-> Class methods are created with the same syntax as object methods.
+		   class ClassName {
+  			constructor() { ... }
+			method1() {...}
+			method2() {...}
+		   }
+
+		   eg: i. <script>
+        			class Person{
+        				constructor(name,year) {
+            					this.name=name;
+            					this.year=year;
+        				}
+       					age()
+        				{
+            					return (new Date().getFullYear() - this.year);
+        				}
+        			}
+    				const p1=new Person("Bharathraj",1999);
+    				document.write(p1.name+"<br>");
+    				console.log(p1.name);
+    				document.write(p1.age());
+    				console.log(p1.age());
+    			   </script>
+
+			ii. <script> 
+        			class Person{
+					//By default constructor
+        				name(){
+						return "Bharathraj";
+					}
+       					age()
+        				{
+            					return (new Date().getFullYear() - 1999);
+        				}
+        			}
+    				const p1=new Person("Bharathraj",1999);
+    				document.write(p1.name()+"<br>");
+    				console.log(p1.name());
+    				document.write(p1.age());
+    				console.log(p1.age());
+    			   </script>
+
+	* Class Inheritance
+	  =================
+		-> To create a class inheritance, use the extends keyword.
+		-> eg: <script>
+				class Bike //super class
+				{
+  					constructor(brand) {
+    						this.name = brand;
+  					}
+  					present() {
+    						return 'I have a ' + this.name;
+  					}
+				}
+
+				class Model extends Bike //Child class acquiring the property from super class
+				{
+  					constructor(brand, mod) {
+    						super(brand);
+    						this.model = mod;
+  					}
+  					show() {
+    						return this.present() + ', it is a ' + this.model;
+  					}
+				}
+
+				const myBike = new Model("Dominor", "400");
+ 				document.write(myBike.show());
+			</script>
+		-> By calling the super() method in the constructor method, we call the parent's constructor method and gets access to the parent's properties and methods.It first creates the object of corresponding parent class then it will create object of sub class
+	
+	* Getter ansd Setter
+	  ==================
+		-> To add getters and setters in the class, use the get and set keywords.
+		-> Note: even if the getter is a method, you do not use parentheses when you want to get the property value.
+		   eg: <script>
+				class Bike {
+  					constructor(brand) {
+    						this.name = brand;
+  					}
+  					get bname() {
+    						return this.name;
+  					}
+  					set bname(x) {
+    						this.name = x;
+  					}
+				}
+
+				const abc = new Bike("Dominor");
+
+				document.write(abc.bname+"<br>");//getting the value
+				abc.bname="GT";//setting the value
+				document.write(abc.bname);
+			</script>
+
+	* JavaScript Static Methods
+	  =========================
+		-> Static class methods are defined on the class itself.
+		-> We cannot call a static method on an object, we can only call by classname.method()
+		-> If you want to use the myCar object inside the static method, you can send it as a parameter
+		   eg: <script>
+				class Bike {
+  					constructor(brand) {
+    						this.name = brand;
+  					}
+  					static bname(a) //setting parameter to access class object inside the static method
+  					{
+  						return a.name;
+  					}
+				}
+
+				const abc = new Bike("Dominor");
+
+				document.write(Bike.bname(abc));//ClassName.method() to access static method and passing object to a method
+			</script>
+
+
+22) Modules
+-----------
+	* JavaScript modules allow you to break up your code into separate files.
+	* This makes it easier to maintain a code-base.
+	* Modules are imported from external files with the import statement.
+	* Modules also rely on type="module" in the <script> tag.
+	* Export 
+	  ======
+		-> In-line individually : eg: export const age = 24;
+		-> All at once at the bottom: eg: export{name,age,gender}
+		-> Default Exports : eg: export default functionName
+	* Import
+	  ======
+		-> Import from named exports : eg: import { name, age,gender } from "./file_name_where_export_is_written.js";
+		-> Import from default exports : eg: import export_name from "./file_name_where_export_is_written.js";
+
+23) JSON
+========
+	* JSON stands for JavaScript Object Notation
+	* JSON is a format for storing and transporting data.
+	* JSON is often used when data is sent from a server to a web page.
+	* JSON Syntax Rules
+		-> Data is in name/value pairs
+		-> Data is separated by commas
+		-> Curly braces hold objects
+		-> Square brackets hold arrays
+	* JSON Data 
+		-> JSON data is written as name/value pairs, just like JavaScript object properties.
+		-> A name/value pair consists of a field name (in double quotes), followed by a colon, followed by a value
+		   eg: "name":"Bharath"
+	* JSON Objects
+		-> JSON objects are written inside curly braces.
+		-> Just like in JavaScript, objects can contain multiple name/value pairs:
+		   eg: {"firstName":"Bharath", "lastName":"Raj"}
+	* JSON Arrays
+		-> JSON arrays are written inside square brackets.
+		-> Just like in JavaScript, an array can contain objects:
+		   eg: "students":[
+  				{"firstName":"Bharath", "lastName":"raj"},
+  				{"firstName":"Bharath", "lastName":"Gowda"},
+  				{"firstName":"Bharath", "lastName":"Kumar"}
+				]
+	* Converting a JSON Text to a JavaScript Object
+		-> A common use of JSON is to read data from a web server, and display the data in a web page.
+		   let text = '{ "students":[' +
+					'{"firstName":"Bharath", "lastName":"raj"},' +
+					'{"firstName":"Bharath", "lastName":"Gowda"},' +
+					'{"firstName":"Bharath", "lastName":"Kumar"} ]}';
+		-> Then, use the JavaScript built-in function JSON.parse() to convert the string into a JavaScript object:
+		   const obj = JSON.parse(text);
+	* Any JavaScript object can be stringified (converted to a string) with the JavaScript function JSON.stringify()
+		-> let abc=JSON.stringify(obj)
+
+
+
+		   
+
+
+
+
+
+
+
+	
+
