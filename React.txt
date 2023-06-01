@@ -1,0 +1,291 @@
+											React.js
+											********
+
+#) What is react
+	* It is a open source javascript library for building user interface
+	
+#) Why is React
+	* Reusable of code
+	* React is declarative
+		-> We just want to tell to react what we want & it will build the actual UI
+		-> React will handle efficiently updating and rendering of the component when data changes.
+		-> DOM (Document Object Model i.e., represents the web page as a tree structure) updates are handles gracefully in react.
+	* We can integrate react into any of our applications, whether it may be portion of page,full page or complete application.
+
+#) Node.js and text editor(like vs code) is required to run react
+
+#) Create React app
+===================
+	* It is a CLI tool that allows to quickly create & run react application with no configuration( i.e., simply run the command entire project will be created)
+	* React will run in localhost 3000
+	* Methods to create react application using create-react app
+		i) npx
+		   ---
+			-> It is a npm package runner it get installed when we install node, this is the reason we directly able to run create-react-app without having to install it
+			-> Syntax : npx create-react-app <project_name>
+			-> Steps: 
+				  > npx create-react-app <project_name>
+				  > cd /.project_name/
+				  > npm start
+				  > <project_name> -> src -> App.js -> implementations are present we can chenge this implementation to display in webbrowser
+
+		ii) npm
+		    ---
+			-> Install the create-react-app globally & then use thepackage to generate package
+			    npm install create-react-app -g
+			-> create-react-app <project_name>   (React application is created)
+
+#) Folders involved in REACT Application & how the control flows when we run react application
+===============================================================================================
+	i) node_modules: 
+	   -------------
+		* Folders which contains all the dependencies
+		* This folder is generated when we run create-react-app or npm install
+	ii) public:
+	    -------
+		a) manifest.json:
+		   ==============
+			-> It is concerned with progressive web application
+		b) favicon.ico:
+		   ============
+			-> Which we see in browser tab
+		c) index.html:
+		   ===========
+			-> It is the only html file present in application		
+			-> No changes to be done in body section because React to control UI so we have one div tag with id="root"
+			-> At runtime React application takes over this div tag & is responsible for the UI
+	iii) src:
+             ----
+			1) index.js:
+			   ---------
+				-> Here we specify root component which is <App/> component & DOM element which will be controlled by React(DOM element is id="root")
+				-> App component is rendered inside the root DOM node that bring us to <App/> component which is present in  App.js 
+			2) App.js:
+			   -------
+				-> App.js  is the responsible for the HTML to see in browser in other words App component represents the view which we see in the browser
+			3) App.test.js
+			   ------------
+				-> Contains sample test case
+			4) ServiceWorker.js:
+			   -----------------
+				-> It concerned with progressive web application
+
+	* Working
+		When npm start -> Search for index.html -> with root DOM node from index.html control enters to index.js -> React DOM renders the App component on to the root DOM Node -> App Component(App.js) contains HTML which is gonna display
+
+#) Components
+=============
+	* It represent part of UI
+	* Component in code:
+	  ------------------
+		-> Component code placed in javascript file
+		   eg: App component i.e., App.js (.jsx)
+	* Types Of Components
+	  -------------------
+		a) functional component
+		   ==============================
+			-> They are javscript function which accepts properties(props) and inturn returns HTML(jsx) which describes UI
+			-> function naanu(x)
+			   {
+				return <h1> Hello, {x.name}</h1>;
+			   }
+			-> Absence of 'this' keyword in functional components
+			-> They also known as Dump/Presentational components
+
+		b) class component
+		   =========================
+			-> They are ES6 classes that extends component class from React library 
+			-> They contain Render method which inturn return HTML
+			-> class A extends React.component{
+				render() {
+					return <h1>Hello,{this.props.name}</h1>;
+				}
+			   }
+			-> They also known as Statefull/Smart/Container components
+
+	     eg: Present in practice_1_Components
+		>In App.js
+		 =========
+			import logo from './logo.svg';
+			import './App.css';
+			// importing class component
+			import Welcome from './components/Welcome_Class';
+			//importing functional component
+			import Naanu from './components/functional';
+
+			function App() {
+  				return (
+    					<div className="App">
+      						<header className="App-header">
+        						<img src={logo} className="App-logo" alt="logo" />
+        						<p>Bharathraj G P</p>
+        						<a
+         				 		  className="App-link"
+         				 		  href="https://reactjs.org"
+        						  target="_blank"
+         						  rel="noopener noreferrer">
+          							Learn React
+        						</a>
+      						</header>
+      						<Welcome/> 
+      						<Naanu/>
+    					</div>
+  					);
+			}
+
+			export default App;
+		
+		>Create a two files for 2 components in a folder
+			-> functional.js (functional components)
+			   =====================================
+				import React from "react";
+				const Naanu=() => <h1>Functional Components</h1> ;
+				export default Naanu; //exporting functional component
+
+			-> Welcome_Class.js (Class Components)
+			   ===================================
+				import React,{Component} from "react";
+
+				class Welcome extends Component{
+    					render(){
+        					return <h1>Class Component</h1>
+    					}
+				}
+				export default Welcome
+
+#) JSX
+======
+	* JavaScript XML(JSX) is the extension to the JavaScript language Syntax
+	* JSX tags also have tag name,attributes & children
+	* JSX makes React code simpler and elegant
+	* JSX transpiles( the process of taking source code written in one language and transforming it into another language) to pure javascript which is understood by the browser
+	  Examples for coding both using and without using JSX
+	  eg: Present in practice_2_jsx(JSX_Folder)
+		>In App.js
+		 =========
+			import logo from './logo.svg';
+			import './App.css';
+			// importing 
+			import Hello from './JSX_Folder/Jsx_1';
+
+			function App() {
+  				return (
+    					<div className="App">
+      						<Hello />
+    					</div>
+  					);
+			}
+
+			export default App;
+		
+		>Create a files in a folder just for coding
+			-> Jsx_1.js (Using JSX library)
+			   ===========================
+				import React from 'react';
+
+				Using JSX library
+				const Hello=()=>{
+				     return(
+         				<div>
+             					<h1>I'm Bharath</h1>
+         					</div>
+				     )
+ 				}
+				export default Hello;
+
+			-> Jsx_1.js (Using JSX library)
+			   ===========================
+
+				// Without using JSX
+				//   -> For this purpose React library provides a createElement(String->Which_Specifies_the_HTML_tag_to Render,Additional Property[Object of key value pair that will be applied to the element or adding id and class name to a tag],Chlidren for HTML Element) method which accept minimum of 3 parameter
+				import React from 'react';
+				const Hello=()=>{
+    					return React.createElement('div',{id:"naanu",className: "FirstClass"},React.createElement('h1',null,'Im Bharath'))
+				}
+
+				export default Hello;
+
+
+	* Each JSX element is just syntactic sugar for calling React.CreateElement() for this purpose only import React is needed
+	* JSX Difference from normal html
+		-> Class => className
+		-> for => htmlFor
+		-> onclick => onClick
+		-> tabindex => tabIndex
+
+#) Props(Properties)
+====================
+	* It is the optional input that component can accept & it allows the component to be dynamic
+	* Props in class component
+		-> Properties can be accessed in class component through this.props
+	* Props are immutable in nature (that we cannot change the values of props)
+	  eg: Present in practice_2_jsx(Props_Folder)
+		>In App.js
+		 =========
+			import logo from './logo.svg';
+			import './App.css';
+			// importing 
+			import Hello from './JSX_Folder/Jsx_1';
+
+			function App() {
+  				return (
+					<div className="App">
+    						<Naanu name="Bharath" age="23">
+          						<p>Children property </p>
+        					</Naanu>
+        					<Naanu name="Vijay" age="21">
+          						<button type="submit" >submit</button>
+        					</Naanu>
+        					<Naanu name="Subadhre" age="16">
+          						<a href="https://en.wikipedia.org/wiki/MS_Dhoni">click me</a>
+        					</Naanu>
+						{/* Props in Class Component */}
+						<Welcome name="Bharath" age="23">
+        						<p>Children property </p>
+        					</Welcome>
+        					<Welcome name="Vijay" age="21"></Welcome>
+					</div>
+  					);
+			}
+
+			export default App;
+		
+		>Create a files in a folder just for coding
+			-> name.js (Using JSX library)
+			   ===========================
+				import React from 'react';
+
+				const Naanu =(props)=>{
+    					return(
+        					<div>
+            						<h1>
+                						Hello {props.name} is {props.age} years old
+            						</h1>
+            						{props.children}{/* Accessing for child tags*/}
+        					</div>
+    						)
+				}
+
+				export default Naanu;
+
+		>>Create a files in a folder just for writing a class component
+			-> Class_Welcome.js (Using JSX library)
+			   ====================================
+				import React, { Component } from "react";
+
+				class Welcome extends Component {
+  					render() {
+    						return <div>
+             						   <h1>Class Component</h1>
+          						   <h1>Hi, {this.props.name} is {this.props.age} years old</h1>
+             						   {this.props.children}
+    							</div>;
+  					}
+				}
+
+				export default Welcome;
+
+	
+   NOTE : JSX return statement should contain only one wrapper element
+
+
