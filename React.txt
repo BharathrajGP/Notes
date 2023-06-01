@@ -226,6 +226,8 @@
 			import './App.css';
 			// importing 
 			import Hello from './JSX_Folder/Jsx_1';
+			import Naanu from './Props_Folder/Name';
+			import Welcome from './Components/Class_Welcome';
 
 			function App() {
   				return (
@@ -287,5 +289,82 @@
 
 	
    NOTE : JSX return statement should contain only one wrapper element
+
+#) Component State
+==================
+	* State is an object that is privately maintained inside the component 
+	* State can influence what is rendered in the browser
+	* State can be changed within the component
+	* useStateHook is used in functional Component
+	* this.state is used in class component
+	* Steps to create and use the state component
+		Step 1: Create state object & initialize, this step should be done within the class constructor
+			-> Write a constructor & call super() to acquire the properties from component class
+			-> Create state object 
+				like this.state={}
+			-> Initialize the value inside the state object
+		Step 2: Bind the state value in render function within return statement
+				like return <h1>{this.state.message}</h1>
+
+	    Now we can change the message appeared in the browser because we used state to render the message
+
+		Step 3: Add your requirement what to be rendered
+		Step 4: Add the functionality to the step 3 requirements
+
+	
+	* eg:Present in practice_2_jsx(States_Folder)
+		>In App.js
+		 =========
+			import logo from './logo.svg';
+			import './App.css';
+			// importing
+			import Message from './States/Message';
+
+			function App() {
+  				return (
+					<div className="App">
+        					<Welcome></Welcome>
+					</div>
+  					);
+			}
+
+			export default App;
+		
+		>Create a files in a folder just for coding
+			-> Welcome.js (Using JSX library)
+			   ===========================
+				// Create class component
+				import React, { Component } from "react";
+
+				class Message extends Component {
+    					constructor()
+    					{
+        					super()
+        					this.state={
+            						message:"Welcome Bhai"
+        					}
+    					}
+    					changeMessage()
+    					{
+        					//this setState() accept the object(i.e., new state of an component) as an argument
+        					this.setState({
+            						message:"Thanking You for clicking"
+        					})
+    					}
+  					render() {
+    						return(
+        						<div>
+            							<h1>{this.state.message}</h1>
+            								<button onClick={()=>this.changeMessage()}>Click</button>
+        						</div>
+    						);
+  					}
+				}
+
+				export default Message;
+
+
+
+	
 
 
