@@ -8,6 +8,10 @@ import style from './StylingReact_Folder/CSSModule.module.css'
 import Form from './FormHandling_Folder/Form';
 import Mounting from './LifeCycle_Floder/Mounting';
 import Updating from './LifeCycle_Floder/Updating';
+import FragmentDemo from './Fragment_Folder/FragmentDemo';
+import Table from './Fragment_Folder/Table';
+import PureCompo from './PureComponent/PureCompo';
+import ParentCompo from './PureComponent/ParentCompo';
 
 function App() {
   return (
@@ -51,7 +55,18 @@ function App() {
       {/* 1.Mounting LifeCycle */}
       {/* <Mounting></Mounting> */}
       {/* 2. Updating */}
-      <Updating></Updating>
+      {/* <Updating></Updating> */}
+
+
+      {/* Fragment */}
+      {/* <FragmentDemo></FragmentDemo>
+      <Table></Table> */}
+
+
+      {/* Pure Component */}
+      <PureCompo></PureCompo>
+      {/* Difference b/w pure component and component */}
+      <ParentCompo></ParentCompo>
     </div>
   );
 }

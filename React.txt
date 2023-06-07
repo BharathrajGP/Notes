@@ -706,6 +706,57 @@
 		eg: Present in practice_3(FormHandling_Folder (Form.js))
 
 
+#) Life Cycle Methods
+=====================
+	1) Mounting
+
+
+
+#) Fragments
+============
+	*Fragment let to group a list of children element without adding extra node to DOM
+	* In other words Fragment prevent the extra node from being added to DOM
+		i.e., We observe in inspect that, text enclosed with extra <div> tag. This is avoided by using Fragment(using <React.Fragment> tag in return statement) 
+			eg: return(
+				<React.Fragment>
+					<div>Bharath</div>
+					<p>Naanu</p>
+				</React.Fragment>
+			    )
+
+	eg: Present in practice_3(Fragment_Folder)
+
+
+#) Fragments
+============
+	*Fragment let to group a list of children element without adding extra node to DOM
+	* In other words Fragment prevent the extra node from being added to DOM
+		i.e., We observe in inspect that, text enclosed with extra <div> tag. This is avoided by using Fragment(using <React.Fragment> tag in return statement) 
+			eg: return(
+				<React.Fragment>
+					<div>Bharath</div>
+					<p>Naanu</p>
+				</React.Fragment>
+			    )
+
+	eg: Present in practice_3(Fragment_Folder)
+
+
+
+#) Pure Component
+==================
+	* Creating a class component by extending pureComponent class
+		eg: class PureCompo extends 		PureComponent {
+  				render() {
+    				return (
+      					<div>
+        					PureComponent
+      					</div>
+    				)
+  				}
+			}
+	* Every 2 seconds Regular component is re-rendered but pure component is never re-rendered
+
 
 
 
