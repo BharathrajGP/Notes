@@ -631,6 +631,86 @@
   						}
 					}
 
+#) Conditional Rendering
+========================
+	1) if/else apporach
+	2) Using Element Variable approach
+	3) Ternary operator approach
+	4) short-circuit operator approach
+
+	eg: Present in practice_2_jsx(Conditional_Rendering_Folder (User.js))
+
+
+#) Rendering the List
+=====================
+	* List & Keys
+	-------------
+		-> In item in the list rendered using map operator should have a props called key & value to that props should be unique
+		-> They are not accessible in child component
+		-> Key give the element to stable identity
+		-> Key help react to identify which items have added or are removed
+
+			eg: Present in practice_3(Rendering_List_Folder)
+
+	* Index as key
+	--------------
+		-> Index is passed as second parameter to the arrow function within the map() & index used as a value to the key props
+		
+		-> When to use index as a prop
+			> The items in the list donot have a unique id
+			> The list is static one and do not change
+			> The list will never be re-ordered or filtered
+		eg : Present in practice_3(Rendering_List_Folder (Key_As_Index.js))
+
+
+#) Styling React Component
+==========================
+	1) CSS StyleSheet
+	-----------------
+		eg: Present in practice_3(StylingReact_Folder (Stylesheet.js))
+	2) Inline Styling
+	-----------------
+		* Inline style is not specified as a string
+		* They are specified with an object whose key is camelcase version of CSS style name & value is in String
+		* Style attribute is used to access the property of the object in an element
+		eg : Present in practice_3(StylingReact_Folder (Inline.js))
+	3) CSS Modules
+	--------------
+		* File naming convension (name.module.css)
+
+	eg: Present in practice_3(StylingReact_Folder)
+
+
+#) Form handling
+================
+	* Form element whose value is controlled by react is called controlled components
+	* Value attribute is to change based on user interaction
+	* onChange attribute is used to update whenever there is a change in the form field
+
+	* Converting normal HTML element to Controlled Component
+	--------------------------------------------------------
+		Step 1: Create a component state that we control the value of input element
+				This is acheived using constructor
+				Initialise state property to empty string
+				Assign this state property as a value of the HTML element => <input type='text' value={this.state.username} />
+		Step 2: Update state changes
+				using onChange attribute and onChangeEventHandler
+					* <input type='text' value={this.state.username} onChange={this.handleUserNameChange}/>
+				Then update state property using setState() in onChangeEventHandler()
+					* handleUserNameChange=(event)=>{
+        					this.setState({
+            						username:event.target.value
+        					})
+    					  }
+
+		eg: Present in practice_3(FormHandling_Folder (Form.js))
+
+
+
+
+
+
+
 
 
 
