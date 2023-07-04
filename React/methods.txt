@@ -1,0 +1,291 @@
+   INBUILT METHODS OF ARRAY 
+
+   1) pop() 
+      pop method in js is used to delete an element from last position
+      and return back a deleted element.
+
+      syntax : array.pop();
+
+   2) push() 
+      push method in js is used to add the elements at last position.
+      and return back length of new array.
+
+       syntax : array.push(new values);
+
+   3) shift()
+      shift method in js is used to delete an element from first position
+      and return back a deleted element.
+
+      syntax : array.shift();
+
+   4) unshift()
+      unshift method in js is used to add the elements at first position.
+      and return back length of new array.
+
+       syntax : array.unshift(new values);
+
+   5) slice()
+      slice method in js is used to cut a part of an array and return 
+      back only for that instance of time.
+
+      syntax : var res = array.slice(start , end)
+
+   6) splice()
+      splice method in js is used to delete or add an elements from any 
+      position of an array 
+      and return back a deleted elements in array format
+      
+      syntax : array.splice(start , deleteCount , ...addingValues);
+      
+   7) indexOf() 
+      indexOf method in js is used to find the first occurance
+      of an array elements and returns index positionwhere it is 
+      present , if not found return -1.
+
+      syntax : array.indexOf( searchElement , fromIndex )
+
+   8) lastIndexOf()
+      lastIndexOf method in js is used to find the last occurance
+      of an array elements and returns index position where it is 
+      present , if not found return -1.
+
+      syntax : array.lastIndexOf( searchElement , fromIndex )
+
+   9) Includes()
+      includes method in js is used to find the an array element 
+      and returns true value if present , if not found return 
+      false.
+
+      syntax : array.includes( searchElement , fromIndex )
+
+   10) toString()
+       toString method will return a string representation of 
+       an array.
+
+      syntax : array.toString()
+
+
+   11) join()
+       join method will concat all array values using the 
+       seperator syobmol and returns a string value.
+
+       syntax : array.join(seperator)
+
+   12) forEach()
+       forEach in js is a method used to iterate an array for full
+       length.it can be used as an alternative of for loop.
+
+       NOTE : WE CANNOT RETURN A VALUE FROM FOREACH 
+
+       syntax : array.forEach( (val,ind,arr)=>{ statments} );
+
+       ex : var a  = [10,20,30,40,50];
+            let sum = 0;
+
+            1) a.forEach((val)=>{ sum = sum + val })
+
+            OR
+
+            2)  for(let i = 0; i < a.length; io++) 
+                {
+                   sum = sum + a[i];
+                }
+
+   13) map() 
+       map method in js is used to return a new array of same
+       size but with different values.
+
+       syntax : array.map( (val,ind,arr)=>{ return value } );
+
+       Every returning value from callbacl fn will be pushed to the
+       new array.
+
+
+   14) filter()
+       filter method in js is used to return a new array with filtered
+       out values based on some condition.
+
+       syntax : array.filter( (val,ind,arr)=>{ return condition } );
+
+       Whenever return condition is true , that iteration value 
+       value will be will be pushed to the new array.
+
+   15) some()
+       some method in js is used to satisfy a condition for some 
+       of the values of an array.
+
+       syntax : array.some((v,i,a)=>{ return condition })
+
+       if any one return condition is true overall returning value 
+       from some method is true.
+
+
+   16) every() 
+       every method in js is used to satisfy a condition for all 
+       the values of an array.
+
+       syntax : array.every((v,i,a)=>{ return condition })
+
+       if and only if all return condition is true overall 
+       returning value from some method is true.
+
+
+   17) find()
+       find method in js is used to do a custom search operation
+       on arrays.
+
+       syntax : array.find((v,i,a)=>{ return condition })
+
+       if any iteration return condition is true Immediatley that 
+       instance value will be returned from find method. 
+
+
+   18) findIndex()
+       findIndex method in js is used to do a custom search 
+       operation on arrays to find the element position.
+
+       syntax : array.findIndex((v,i,a)=>{ return condition })
+
+       if any iteration return condition is true Immediatley that 
+       instance index will be returned from findIndex method.
+
+   19) sort()
+       sort method in js is used to sort an array either in ascending
+       or desending order.
+
+       syntax : array.sort()                     -> charc sorting
+                array.sort((a,b)=>{ return a-b}) -> ascending
+                array.sort((a,b)=>{ return b-a}) -> desending
+
+
+   20) reduce()
+       reduce method in js is used to reduce multiple values of an
+       array into one single value.
+
+       syntax : array.reduce( (acc,v,i,a)=>{ return value } , init_val )
+   
+       every returning value will be occupied by first param of call
+       back , final return from reduce is accumulator value.
+
+
+
+   21) flat()
+       flat is used to change the depth of an array only for that 
+       instance of time.
+
+       syntax : array.flat(depth)
+
+   22) concat()
+       concat method in js is used to merge multiple arrays into 
+       one.
+
+       syntax : array.concat(arr2 , arr3, ...)
+
+   23) fill()
+       fill method in js is used to fill a value in some positions
+       of an array.
+
+       syntax : array.fill(value , start , end)
+
+       value will be filled from start index upto end index -1.
+
+   
+Strings in JS 
+
+   -> Strings in js is a group of characters , or 
+
+   -> Anything which is written inside double quote or single quote
+      or backtick is considered as string value in js.
+
+   -> Strings in js is immutable.
+
+   -> Strings in js can be iterated.
+
+Logics on string datatype.
+
+Inbuilt methods of Strings.
+
+   1) charAt()
+      charAt method in js will return character at specified index.
+
+      syntax: str.charAt(index);
+
+   2) charCodeAt()
+      charCodeAt method in js will return unicode of the 
+      character at specified index.
+
+      syntax: str.charCodeAt(index);
+
+   3) indexOf()
+      indexOf method in js will return index position where that 
+      character is present.
+
+      syntax: str.indexOf(string);
+
+   4) lastIndexOf()
+      lastIndexOf method in js will return index position where that 
+      character is present as last occurance.
+
+      syntax: str.lastIndexOf(string);
+
+   5) includes()
+      includes method in js will return boolean value representing
+      wethear value is present or not.
+
+      syntax: str.includes(string);
+
+   6) startsWith()
+      startsWith method in js can be used to check whether string 
+      is starting with specified substring 
+
+      syntax: str.startsWith(string);
+
+   7) endsWith()
+      endsWith method in js can be used to check whether string 
+      is ending with specified substring.
+
+      syntax: str.endsWith(string);
+
+   8) slice() : same as substring method 
+
+   9) substring()
+      substring method is used to return a part of string from 
+      specified start index upto end -1 index.
+
+      syntax: str.substring(start , end);
+
+   10) toUpperCase()
+       toUpperCase method will return the new string by converting 
+       all characters into  UpperCase
+
+       syntax : str.toUpperCase()
+
+   11) toLowerCase()
+       toLowerCase method will return the new string by converting 
+       all characters into  lower case
+
+       syntax : str.toLowerCase()
+
+   12) split()
+       split in js is used to split a string by using the specified
+       seperator character and store the remainings in array format.
+
+       syntax :let array =  str.split(seperator);
+
+   13) concat()
+       concat method in js is used to add the multiple string 
+       value and return new concatinated string value
+
+       syntax : str.concat(str1 , str2 , str3....);
+
+   14) replace()
+       replace method in js is used to replace substring into other 
+       string and returns a new string.
+
+       syntax :let newStr =  str.replace(subStr , rplcStr);
+
+   15) repeate()
+       it will repeate the same string multiple times as specified 
+       in argument.
+
+       syntax : str.repeate(3)

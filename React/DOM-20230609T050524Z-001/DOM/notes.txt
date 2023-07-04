@@ -1,0 +1,155 @@
+
+DOM (Document Object Model)
+
+   DOM is an interface by the browser considering the
+   document as a object model so that our programs can 
+   manuplate(CRUD) the document.
+
+   Dom tree will be created for every document , each 
+   and every end points are called as NODES 
+
+   ->If the node is a tag we call it as elemental node
+     or Element.
+   ->If the node is a text we call it as text node.
+   ->If the node is a attribiute we call it as 
+     attribiute node.
+
+DOM inbuilt methods 
+
+   section1 :-  Read the tags
+
+      getElementById()
+         To get a single element with using id value we can use this method.
+
+      getElementsByClass()
+         To get a multiple element of different types with using class value we 
+         can use this method.
+
+      getElementsByTagname()
+         To get a multiple element of different types with using class value we 
+         can use this method.
+
+      getElementsByName()
+         To get a multiple element of same types with using tag name we 
+         can use this method.
+      
+      querySelector()
+         This is a generalised method to get an element using id or class or tag 
+         name.
+
+      querySelectorAll()
+         This is a generalised method to get all elements using  class or tag 
+         name.
+
+   section2 :-  Traversing the tags
+
+      Access Parent tag
+         parentElement
+            to access a Parent tag of on element we can use this property.
+         parentNode
+            to access a Parent node of on element we can use this property.
+
+
+
+      Access child tag
+         childNodes
+            To access all type of the child node of one parent element we can use 
+            this property.
+
+         children
+            To access only elemental type of the child node of one parent element 
+            we can use this property.
+
+         firstChild
+            To access first child node of one parent element we can use 
+            this property.
+
+         firstElementChild
+            To access first elemental type of child node of one parent element we 
+            can use this property.
+
+         lastChild
+            To access last child node of one parent element we can use 
+            this property.
+
+         lastElementChild
+            To access last elemental type of child node of one parent element we 
+            can use this property.
+
+         hasChild()
+            Too check the child nodes are present inside a parent node we can use 
+            this method.
+
+
+
+      Access Siblings
+         nextSibling
+            To access next child node of one element we can use this property.
+
+         nextElementSibling
+            To access next elemental type of child node of one element we can use 
+            this property.
+
+         previousSibling
+            To access previous child node of one element we can use this property.
+
+         previousElementSibling
+            To access previous elemental type of child node of one element we can 
+            use this property.
+
+
+   section3 :-  Manuplation of the tag
+
+      innerText
+         To access the text node present inside the element we can use 
+         this property.
+
+      textContent
+         To access the text node present inside the element we can use 
+         this property.
+
+      value
+         To access the text node present inside the INPUT element we can use 
+         this property.
+
+      createElement()
+         To create a new html element we can use this method.
+
+      append()
+         To insert an element to the dom tree at last position of the parent node
+         we can use this method.
+
+      appendChild()
+         To insert any type od node to the dom tree at last position of the parent node
+         we can use this method.
+
+      prepend()
+         To insert an element to the dom tree at first position of the parent node
+         we can use this method.
+
+      inserBefore()
+         To insert an element to the dom tree before one perticular node
+         we can use this method.
+
+      replaceChild()
+         To replace an element in the dom tree we can use this method.
+
+      removeChild()
+          To remove or delete an element in the dom tree we can use this method.
+
+   section4 :-  Manuplation of the attribiute
+
+      getAttribute()
+      setAttribute()
+      hasAttribute()
+      attribute as property
+
+   section5 :-  Manuplation of style
+
+      getComputedStyle()
+      style as a property
+
+   section6 :-  event handling
+
+      event listerner
+      types

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1>Home page</h1>
+    <hr>
+
+    <h1 id="head1"></h1>
+    <h1 id="head2"></h1>
+    <h1 id="head3"></h1>
+    <h1 id="head4"></h1>
+
+    <button onclick="logout()">Logout</button><br><br>
+
+    <button onclick="deleteAccount()">Delete account</button><br><br>
+
+
+    <script>
+        
+        function deleteAccount()
+        {
+           let password = prompt("Are you sure , If yes please enter password to delete");
+           let currentuser = JSON.parse(localStorage.getItem("currentuser"));
+
+           if(password == currentuser.password)
+           {
+                localStorage.removeItem("currentuser");
+                let users = JSON.parse(localStorage.getItem("users"));
+
+                let ind = users.findIndex( (user)=>{ return currentuser.email==user.email } );
+
+                users.splice( ind , 1 );
+
+                localStorage.setItem("users" , JSON.stringify(users));
+
+                alert("account deleted permenantly");
+
+                window.location.assign("file:///C:/Users/JSP%20203/Desktop/React%20sep-oct-nov/js/signup.html");
+
+           }
+           else
+           {
+             alert("Password inncorrect , cannot delete an account");
+           }
+            
+        }
+
+
+        function displayUserDetails()
+        {
+           let currentuser = JSON.parse(localStorage.getItem("currentuser"));
+
+           // validate the user login is done or not
+           if(currentuser==null)
+           {
+                alert("login not done ! please do the login and then enter");
+                window.location.assign("file:///C:/Users/JSP%20203/Desktop/React%20sep-oct-nov/js/login.html");
+           }
+           else
+           {
+                document.getElementById("head1").innerText = `Username : ${currentuser.username}`;
+                document.getElementById("head2").innerText = `Email : ${currentuser.email}`;
+                document.getElementById("head3").innerText = `Country : ${currentuser.country}`;
+
+                let dobYear = new Date(currentuser.birth_date).getFullYear();
+                let currentYear = new Date().getFullYear();
+                const age = currentYear - dobYear;
+
+                document.getElementById("head4").innerText = `Age : ${age}`;
+           } 
+        }
+        displayUserDetails()
+
+
+        function logout()
+        {
+            localStorage.removeItem("currentuser");
+            window.location.assign("file:///C:/Users/JSP%20203/Desktop/React%20sep-oct-nov/js/login.html");
+        }
+
+
+
+    </script>
+
+</body>
+</html>

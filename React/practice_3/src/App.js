@@ -12,6 +12,11 @@ import FragmentDemo from './Fragment_Folder/FragmentDemo';
 import Table from './Fragment_Folder/Table';
 import PureCompo from './PureComponent/PureCompo';
 import ParentCompo from './PureComponent/ParentCompo';
+import ParentCompos from './Memo_Folder/ParentCompos';
+import RefsDemo from './Refs/RefsDemo';
+import RefsDemo1 from './Refs/RefsDemo1';
+import FocusInput from './RefsWithClassComponent/FocusInput';
+
 
 function App() {
   return (
@@ -64,9 +69,23 @@ function App() {
 
 
       {/* Pure Component */}
-      <PureCompo></PureCompo>
+      {/* <PureCompo></PureCompo> */}
       {/* Difference b/w pure component and component */}
-      <ParentCompo></ParentCompo>
+      {/* <ParentCompo></ParentCompo> */}
+
+
+      {/* Memo */}
+      {/* <ParentCompos/> */}
+
+
+      {/* Refs */}
+      {/* <RefsDemo></RefsDemo>
+      <RefsDemo1></RefsDemo1> */}
+
+
+
+
+      <FocusInput></FocusInput>
     </div>
   );
 }

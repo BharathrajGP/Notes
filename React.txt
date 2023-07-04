@@ -756,6 +756,18 @@
   				}
 			}
 	* Every 2 seconds Regular component is re-rendered but pure component is never re-rendered
+	eg: Present in practice_3(PureComponent_Folder)
+
+
+#) Refs
+=======
+	* Uses of refs in HTML element
+		-> To Focus on input field
+		-> To fetch input value
+	eg: Present in practice_3(Refs)
+
+
+#) 
 
 
 

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Translate Text</h1>
+    <hr>
+    
+    <div id="input-box">
+        <textarea id="qstn" cols="30" rows="10"></textarea>
+        <select id="languages"></select>
+    </div>
+
+    <button onclick="translateLanguage()">translate</button>
+
+    <hr>
+
+    <div id="output-box">
+        <textarea id="answer" cols="30" rows="10"></textarea>
+    </div>
+
+    <script>
+        (()=>{
+            const options = {
+                                method: 'GET',
+                                headers: {
+                                    'Accept-Encoding': 'application/gzip',
+                                    'X-RapidAPI-Key': 'da3e9d6194msh99ca5a70f09bf66p1531afjsncb0199344067',
+                                    'X-RapidAPI-Host': 'google-translate1.p.rapidapi.com'
+                                }
+                            };
+
+                            fetch('https://google-translate1.p.rapidapi.com/language/translate/v2/languages', options)
+                                .then(response => response.json())
+                                .then((response) =>{
+                                    let languages =  document.getElementById("languages");
+                                    response.data.languages.forEach((ln) => {
+                                        let opt = document.createElement("option");
+                                        opt.value = ln.language;
+                                        opt.innerText = ln.language;
+                                        languages.append(opt);
+                                    });
+                                    })
+                                .catch(err => console.error(err));
+                                    })()
+
+
+            let translateLanguage = ()=>{
+                let qstn = document.getElementById("qstn").value;
+                let ln = document.getElementById("languages").value;
+
+
+                const encodedParams = new URLSearchParams();
+                encodedParams.append("q", qstn);
+                encodedParams.append("target", ln);
+                encodedParams.append("source", "en");
+
+                const options = {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/x-www-form-urlencoded',
+                        'Accept-Encoding': 'application/gzip',
+                        'X-RapidAPI-Key': 'da3e9d6194msh99ca5a70f09bf66p1531afjsncb0199344067',
+                        'X-RapidAPI-Host': 'google-translate1.p.rapidapi.com'
+                    },
+                    body: encodedParams
+                };
+
+                fetch('https://google-translate1.p.rapidapi.com/language/translate/v2', options)
+                    .then(response => response.json())
+                    .then(response => {
+                        document.getElementById("answer").value = response.data.translations[0].translatedText;
+
+                    })
+                    .catch(err => console.error(err));
+
+            }                        
+
+
+        
+    </script>
+
+</body>
+</html>
